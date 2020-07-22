@@ -15,6 +15,7 @@
 # https://edwards.sdsu.edu/research/fastq-dump/
 
 table=$1 # input file containing SRA accession numbers to download
+dest=$2
 
 exec 3>&1 4>&2
 exec 1>get_SRA.log 2>&1
@@ -40,17 +41,21 @@ do
 	then
 		echo ""
 	else
-
-		echo "...\nConverting $record to FASTQ"
-		fastq-dump \
-		--outdir fastq \
-		--gzip \
-		--skip-technical  \
-		--readids \
-		--read-filter pass \
-		--dumpbase \
-		--split-3 \
-		--clip $record \
-		$record
+		if [ -f "${record}*" ];
+		then
+			echo "FASTQ files for $record already exist, skipping..."
+		else
+			echo "...\nConverting $record to FASTQ"
+			fastq-dump \
+			--outdir $dest \
+			--gzip \
+			--skip-technical  \
+			--readids \
+			--read-filter pass \
+			--dumpbase \
+			--split-3 \
+			--clip $record \
+			$record
+		fi
 	fi
 done
