@@ -4,7 +4,7 @@
 
 Downloads SRA data and converts to FASTQ files. Pulls accession numbers 
 from SraRunTable.txt metadata or SRR_Acc_List.txt tables from SRA Run
-Selector.
+Selector. An example file is included in this repository.
 
 **NOTE: assumes SRA Toolkit is installed and assigned to $PATH**: 
 https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit
