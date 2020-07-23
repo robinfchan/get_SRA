@@ -1,8 +1,8 @@
 # get_SRA
 
-## A helpful little script to prefetch SRA data and convert over to FASTQ
+## A helpful little script to prefetch NCBI SRA data and convert over to FASTQ
 
-Downloads SRA data and converts to FASTQ files. Pulls accession numbers 
+Downloads NCBI SRA data and converts to FASTQ files. Pulls accession numbers 
 from SraRunTable.txt metadata or SRR_Acc_List.txt tables from SRA Run
 Selector. An example file is included in this repository.
 
