@@ -29,3 +29,5 @@ get_SRA.sh -pvd -l /path/to/SraRunTable.txt -o /path/to/fastq/output/dir
 	-p		prefetch SRA files; run "vdb-config -i" to set where they write
 	-v		validate prefetched SRA data
 	-d		fastq dump reads (prefetching is optional)
+
+all status and warning messages will be written to *get_SRA.log* in the dir containing *get_SRA.sh*
