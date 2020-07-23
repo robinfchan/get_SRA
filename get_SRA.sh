@@ -77,8 +77,7 @@ fi
 
 # Validation
 if [ $validate -gt 0 ]; then
-	for record in $sra_list
-	do
+	for record in $sra_list; do
 		if [ "$record" = "Run" ]; then
 			echo "Skipping header..."
 		else
@@ -92,13 +91,12 @@ fi
 
 # Fastq dump
 if [ $dump -gt 0 ]; then
-	for record in $sra_list
-	do
+	for record in $sra_list; do
 		if [ "$record" = "Run" ]; then
 			echo ""
 		else
 			if [ -n "$(find ${dest} -maxdepth 1 -name "${record}*" -print -quit)" ]; then
-				echo "FASTQ files for $record already exists, skipping..."
+				echo "FASTQ file(s) for $record already exists, skipping..."
 			else
 				echo "...\nConverting $record to FASTQ"
 				fastq-dump \
@@ -115,7 +113,7 @@ if [ $dump -gt 0 ]; then
 		fi
 	done
 else
-	echo "Skipping fastq dump..."
+	echo "Skipping FASTQ dump..."
 fi
 
 exit 0
